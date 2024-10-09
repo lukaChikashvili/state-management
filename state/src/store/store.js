@@ -1,9 +1,12 @@
-import { configureStore} from '@reduxjs/toolkit'
-import habitsReducer from './habitSlice'
+import { configureStore } from '@reduxjs/toolkit'
+import counterReducer from './habitSlice'
+
+const store = configureStore({
+    reducer: {
+        counter: counterReducer
+    }
+});
 
 
-export default configureStore({
-     reducer: {
-        habits: habitsReducer
-     }
-})
+
+export default store;

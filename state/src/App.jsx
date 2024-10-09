@@ -1,15 +1,20 @@
-import { Provider } from 'react-redux'
-import store from './store/store'
+
+import { useSelector, useDispatch } from 'react-redux'
+import { decrement, increment } from './store/habitSlice';
 
 function App() {
   
+  const counter = useSelector(state => state.counter.counter);
+  const dispatch = useDispatch();
 
     
   return (
     <>
-    <Provider store = {store}>
-      <p>fjsf</p>
-        </Provider> 
+    
+       <p>counter: {counter}</p>
+       <button onClick={() => dispatch(increment())}>+</button>
+       <button onClick={() => dispatch(decrement())}>-</button>
+        
     </>
   )
 }

@@ -1,23 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-// initial state
 const initialState = {
-    habits: []
+    counter: 0
 }
 
-const habitSlice = createSlice({
-    name: "habits",
+export const counterSlice = createSlice({
+    name: "counter",
     initialState,
     reducers: {
-        addHabit: (state, action) => {
-         state.habits.push(action.payload)
+        increment: (state) => {
+          state.counter += 1;
+        },
+
+        decrement: (state) => {
+            state.counter -= 1;
         }
+
+        
     }
 });
 
 
 
-export const { addHabit } = habitSlice.actions;
-export default habitSlice.reducer
+export const { increment, decrement } = counterSlice.actions;
+export default counterSlice.reducer;
+
+
+
+
+
+
 
