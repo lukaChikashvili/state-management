@@ -2,29 +2,27 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialState = {
-    counter: 0
+    tasks: []
 }
 
-export const counterSlice = createSlice({
-    name: "counter",
+export const taskSlice = createSlice({
+    name: "tasks",
     initialState,
     reducers: {
-        increment: (state) => {
-          state.counter += 1;
-        },
+       addTodo: (state, action) => {
+          state.tasks.push({id: Date.now(), text: action.payload, completed: true});
 
-        decrement: (state) => {
-            state.counter -= 1;
-        }
-
-        
+       }
     }
+
+
 });
 
 
+export const { addTodo } = taskSlice.actions;
 
-export const { increment, decrement } = counterSlice.actions;
-export default counterSlice.reducer;
+export default taskSlice.reducer;
+
 
 
 

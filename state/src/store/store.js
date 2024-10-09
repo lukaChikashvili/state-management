@@ -3,7 +3,7 @@ import counterReducer from './habitSlice'
 
 const store = configureStore({
     reducer: {
-        counter: counterReducer
+       
     }
 });
 
